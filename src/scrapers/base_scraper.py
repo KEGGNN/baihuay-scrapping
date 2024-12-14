@@ -13,6 +13,7 @@ class BaseScraper:
 
     def __init__(
         self,
+        base_url,
         headers: Optional[Dict[str, str]] = None,
         max_retries: int = 3,
         timeout: int = 10,
@@ -27,6 +28,7 @@ class BaseScraper:
         :param timeout: Request timeout in seconds
         :param delay_range: Random delay range between requests (min, max)
         """
+        self.base_url = base_url
         self.headers = headers or {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
             "Accept-Language": "en-US,en;q=0.9",
